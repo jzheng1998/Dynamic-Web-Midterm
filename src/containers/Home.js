@@ -1,51 +1,38 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
-import data from "../apikeys/flickr_api";
+import BreedCard from "../components/BreedCard";
 
 function Home() {
-  const [query, setQuery] = useState("");
-  const [imageData, setImageData] = useState([]);
+  const [breedData, setBreedData] = useState([]);
 
-  const updateQuery = (event) => {
-    event.preventDefault();
-    console.log(query);
-
-    const searchQuery =
-      "https://www.flickr.com/services/rest/?" +
-      "method=flickr.photos.search&" +
-      `api_key=${data.api_key}&` +
-      "format=json&nojsoncallback=1&content_type=all&media=all&sort=relevance&per_page=10&" +
-      `text=${query}`;
-
+  useEffect(() => {
+    const apiEndpoint = `https://api.thedogapi.com/v1/breeds`;
+    const params = {
+      params: {
+        limit: 10,
+      },
+    };
+    const headers = {
+      headers: {
+        "x-app-key": process.env.DOG_API_KEY,
+      },
+    };
     axios
-      .get(searchQuery)
+      .get(apiEndpoint, params, headers)
       .then((response) => {
-        console.log(response);
-        setImageData(response.data.photos.photo);
+        console.log(response.data);
+        setBreedData(response.data);
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        console.log(error);
       });
-  };
+  }, []);
 
   return (
-    <div>
-      <form noValidate autoComplete="off" onSubmit={updateQuery}>
-        <TextField
-          className="outlined-basic"
-          label="Input search..."
-          variant="outlined"
-          value={query}
-          onInput={(e) => setQuery(e.target.value)}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-      {imageData.map((image, i) => {
-        const imgSrc = `https://live.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`;
-        return <img key={i} alt="new" src={imgSrc} />;
+    <div className="HomeContainer">
+      {breedData.map((data, i) => {
+        return <BreedCard key={i} data={data} />;
       })}
     </div>
   );
