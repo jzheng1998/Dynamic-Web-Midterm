@@ -3,5 +3,48 @@
   align-items: flex-start;
   display: flex;
   flex-flow: row wrap;
+  justify-content: flex-start;
   margin: 0 auto;
+}
+
+/*-- CSS for Card --*/
+.CardContainer {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+  width: 25%;
+}
+
+.CardContainer:hover .CardCover {
+  top: 0%;
+  cursor: pointer;
+}
+
+.CardImage {
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  width: 100%;
+}
+
+.CardCover {
+  background: rgba(0, 0, 0, 0.7);
+  display: table;
+  height: 100%;
+  justify-content: center;
+  left: 0%;
+  position: absolute;
+  text-align: center;
+  top: -100%;
+  transition: top 0.5s ease;
+  width: 100%;
+}
+
+.CardName {
+  color: white;
+  display: table-cell;
+  font-size: 40px;
+  text-align: center;
+  text-transform: capitalize;
+  vertical-align: middle;
 }

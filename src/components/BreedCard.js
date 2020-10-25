@@ -10,6 +10,7 @@ function Card({ data }) {
       params: {
         limit: 1,
         breed_id: data.id,
+        order: "DESC",
       },
     };
     const headers = {
@@ -30,7 +31,12 @@ function Card({ data }) {
 
   return (
     <div className="CardContainer">
-      <img src={imageSrc} alt="" />
+      <img className="CardImage" src={imageSrc} alt="" />
+      <div className="CardCover">
+        <div className="CardName">
+          <span>{data.name}</span>
+        </div>
+      </div>
     </div>
   );
 }
