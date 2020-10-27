@@ -25,4 +25,4 @@ yarn-error.log*
 
 # etc
 ideas.txt
-/api/apiKey.js
+/api
