@@ -1,27 +1,24 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import BreedCard from "../components/Card";
+import Card from "../components/Card";
+import { DOG_API_KEY } from "../api/apiKey";
 
 export default function Home() {
   const [breedData, setBreedData] = useState([]);
 
   useEffect(() => {
-    const apiEndpoint = `https://api.thedogapi.com/v1/breeds`;
-    const params = {
-      params: {
-        limit: 10,
-      },
-    };
-    const headers = {
+    const args = {
+      baseURL: "https://api.thedogapi.com/v1/",
       headers: {
-        "x-app-key": process.env.DOG_API_KEY,
+        "x-app-key": DOG_API_KEY,
       },
+      method: "get",
+      url: "/breeds",
     };
-    axios
-      .get(apiEndpoint, params, headers)
+
+    axios(args)
       .then((response) => {
-        console.log(response.data);
         setBreedData(response.data);
       })
       .catch((error) => {
@@ -32,7 +29,7 @@ export default function Home() {
   return (
     <div className="HomeContainer">
       {breedData.map((data, i) => {
-        return <BreedCard key={i} data={data} />;
+        return <Card key={i} data={data} />;
       })}
     </div>
   );

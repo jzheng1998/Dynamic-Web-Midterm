@@ -3,12 +3,13 @@
   align-items: flex-start;
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   margin: 0 auto;
 }
 
 /*-- CSS for Card --*/
 .CardContainer {
+  background-color: lightgrey;
   height: 400px;
   overflow: hidden;
   position: relative;
@@ -57,32 +58,42 @@
   text-decoration: underline;
 }
 
-/*-- CSS for Dog --*/
-.DogContainer {
+/*-- CSS for SelectionCard --*/
+.SelectionCardContainer {
+  border: 1px solid black;
+  border-width: 5px;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  margin: 30px;
+  width: 400px;
 }
 
-.CarouselContainer {
-  background: rgba(0, 0, 0, 0.7);
-  height: 550px;
-}
-
-.ImageContainer {
-  height: 550px;
-  text-align: center;
-}
-
-.HorizontalImage {
+.PhotoContainer {
+  background-color: grey;
   height: auto;
-  max-height: 100%;
   max-width: 100%;
-  width: 100%;
 }
 
-.VerticalImage {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: cover;
+/*-- CSS for Selection Page --*/
+.SelectionContainer {
+  align-items: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.NoSelectionContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.PawImage {
+  margin: 0px 20px;
+  max-width: 100px;
 }
