@@ -9,8 +9,10 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
     "dotenv": "^8.2.0",
+    "nuka-carousel": "^4.7.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-multi-carousel": "^2.5.5",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^3.4.4"

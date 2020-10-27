@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-function Card({ data }) {
+export default function Card({ data, history }) {
   const [imageSrc, setImageSrc] = useState("");
 
   useEffect(() => {
@@ -21,7 +22,6 @@ function Card({ data }) {
     axios
       .get(apiEndpoint, params, headers)
       .then((response) => {
-        console.log(response.data);
         setImageSrc(response.data[0].url);
       })
       .catch((error) => {
@@ -34,11 +34,11 @@ function Card({ data }) {
       <img className="CardImage" src={imageSrc} alt="" />
       <div className="CardCover">
         <div className="CardName">
-          <span>{data.name}</span>
+          <Link className="CardLink" to={`/${data.id}`}>
+            {data.name}
+          </Link>
         </div>
       </div>
     </div>
   );
 }
-
-export default Card;

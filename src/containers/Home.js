@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import BreedCard from "../components/BreedCard";
+import BreedCard from "../components/Card";
 
-function Home() {
+export default function Home() {
   const [breedData, setBreedData] = useState([]);
 
   useEffect(() => {
@@ -37,5 +37,3 @@ function Home() {
     </div>
   );
 }
-
-export default Home;

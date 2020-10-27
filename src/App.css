@@ -17,7 +17,6 @@
 
 .CardContainer:hover .CardCover {
   top: 0%;
-  cursor: pointer;
 }
 
 .CardImage {
@@ -41,10 +40,49 @@
 }
 
 .CardName {
-  color: white;
   display: table-cell;
-  font-size: 40px;
   text-align: center;
-  text-transform: capitalize;
   vertical-align: middle;
+}
+
+.CardLink {
+  color: white;
+  font-size: 40px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.CardLink:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/*-- CSS for Dog --*/
+.DogContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.CarouselContainer {
+  background: rgba(0, 0, 0, 0.7);
+  height: 550px;
+}
+
+.ImageContainer {
+  height: 550px;
+  text-align: center;
+}
+
+.HorizontalImage {
+  height: auto;
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+}
+
+.VerticalImage {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: cover;
 }
