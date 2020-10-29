@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { Box, CircularProgress } from "@material-ui/core";
+
 import { DOG_API_KEY } from "../api/apiKey";
 
 export default function Card({ data }) {

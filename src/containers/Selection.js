@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+
 import SelectionCard from "../components/SelectionCard";
 import { PETFINDER_API_KEY, PETFINDER_SECRET } from "../api/apiKey";
 import paw from "../paw.png";
