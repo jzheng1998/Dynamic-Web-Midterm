@@ -97,3 +97,10 @@
   margin: 0px 20px;
   max-width: 100px;
 }
+
+@media screen and (max-width: 640px) {
+  .CardContainer {
+    height: 400px;
+    width: 100%;
+  }
+}
